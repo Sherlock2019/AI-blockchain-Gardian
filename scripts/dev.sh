@@ -21,11 +21,18 @@ fi
 [[ -f .env ]] && set -a && source .env && set +a
 
 pids=()
+# npm and npx start the real server as a child and do not pass signals on, so
+# each service is stopped as a whole tree, children first.
+kill_tree() {
+  local child
+  for child in $(pgrep -P "$1" 2>/dev/null); do kill_tree "$child"; done
+  kill "$1" 2>/dev/null || true
+}
 cleanup() {
   trap - EXIT INT TERM
   echo
   echo "Stopping…"
-  for pid in "${pids[@]}"; do kill "$pid" 2>/dev/null || true; done
+  for pid in "${pids[@]}"; do kill_tree "$pid"; done
   wait 2>/dev/null || true
 }
 trap cleanup EXIT INT TERM
