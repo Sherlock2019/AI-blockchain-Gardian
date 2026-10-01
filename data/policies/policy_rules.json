@@ -1,0 +1,17 @@
+{
+  "version": "PAYMENT-POLICY-v1",
+  "human_autonomous_limit": "1000.00",
+  "approval_tiers": [
+    {"above": "1000.00", "role": "FINANCE_MANAGER"},
+    {"above": "100000.00", "role": "CFO"}
+  ],
+  "role_rank": {"AP_CLERK": 0, "FINANCE_MANAGER": 1, "CFO": 2},
+  "action_permissions": {
+    "PAY_SUPPLIER": "PROPOSE_PAYMENT",
+    "CHANGE_SUPPLIER": "CHANGE_SUPPLIER",
+    "CHANGE_SUPPLIER_BANK_ACCOUNT": "CHANGE_SUPPLIER_BANK_ACCOUNT",
+    "CREATE_SUPPLIER": "CREATE_SUPPLIER",
+    "DELETE_AUDIT_RECORD": "DELETE_AUDIT_RECORD"
+  },
+  "executable_actions": ["PAY_SUPPLIER"]
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "SUP-001",
+    "name": "Acme Industrial Components",
+    "status": "APPROVED",
+    "risk": "LOW",
+    "payment_limit": "100000.00",
+    "account_token": "MOCK-ACME-001"
+  },
+  {
+    "id": "SUP-002",
+    "name": "Global Logistics Ltd",
+    "status": "APPROVED",
+    "risk": "MEDIUM",
+    "payment_limit": "50000.00",
+    "account_token": "MOCK-GLOBAL-002"
+  },
+  {
+    "id": "SUP-003",
+    "name": "Unknown Trading Ltd",
+    "status": "BLOCKED",
+    "risk": "HIGH",
+    "payment_limit": "0.00",
+    "account_token": "MOCK-UNKNOWN-003"
+  },
+  {
+    "id": "SUP-004",
+    "name": "Northwind Heavy Machinery",
+    "status": "APPROVED",
+    "risk": "LOW",
+    "payment_limit": "500000.00",
+    "account_token": "MOCK-NORTHWIND-004"
+  }
+]

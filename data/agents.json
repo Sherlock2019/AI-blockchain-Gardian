@@ -1,0 +1,24 @@
+[
+  {
+    "id": "AGENT-TREASURY-001",
+    "name": "Treasury AI Agent",
+    "role": "TREASURY_ASSISTANT",
+    "version": "1.0.0",
+    "status": "ACTIVE",
+    "allowed_actions": [
+      "READ_INVOICE",
+      "READ_SUPPLIER",
+      "READ_PO",
+      "READ_POLICY",
+      "PROPOSE_PAYMENT"
+    ],
+    "forbidden_actions": [
+      "CHANGE_SUPPLIER",
+      "CHANGE_SUPPLIER_BANK_ACCOUNT",
+      "CREATE_SUPPLIER",
+      "DELETE_AUDIT_RECORD"
+    ],
+    "autonomous_payment_limit": "1000.00",
+    "policy": "AI-Agent-Policy-v1"
+  }
+]

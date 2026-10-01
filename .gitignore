@@ -1,0 +1,26 @@
+# secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# node
+node_modules/
+frontend/dist/
+
+# hardhat
+blockchain/artifacts/
+blockchain/cache/
+blockchain/deployments/
+
+# local state
+*.db
+*.db-journal
+.run/
+.DS_Store

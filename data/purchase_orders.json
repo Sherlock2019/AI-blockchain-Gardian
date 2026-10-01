@@ -1,0 +1,10 @@
+[
+  {"id": "PO-9815", "supplier_id": "SUP-001", "approved_amount": "3200.00", "description": "Rack mounting kits", "status": "APPROVED"},
+  {"id": "PO-9821", "supplier_id": "SUP-001", "approved_amount": "50000.00", "description": "Industrial server components", "status": "APPROVED"},
+  {"id": "PO-9822", "supplier_id": "SUP-001", "approved_amount": "500.00", "description": "Replacement cooling fans", "status": "APPROVED"},
+  {"id": "PO-9823", "supplier_id": "SUP-001", "approved_amount": "18000.00", "description": "Power distribution units", "status": "APPROVED"},
+  {"id": "PO-9830", "supplier_id": "SUP-004", "approved_amount": "250000.00", "description": "CNC machining centre", "status": "APPROVED"},
+  {"id": "PO-9840", "supplier_id": "SUP-003", "approved_amount": "50000.00", "description": "Miscellaneous trading goods", "status": "APPROVED"},
+  {"id": "PO-9850", "supplier_id": "SUP-002", "approved_amount": "20000.00", "description": "Q3 freight forwarding", "status": "APPROVED"},
+  {"id": "PO-9851", "supplier_id": "SUP-002", "approved_amount": "8000.00", "description": "Warehouse handling services", "status": "APPROVED"}
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "USR-001",
+    "name": "Alice Finance Manager",
+    "role": "FINANCE_MANAGER",
+    "approval_limit": "100000.00",
+    "permissions": ["READ_INVOICE", "READ_SUPPLIER", "READ_PO", "READ_POLICY", "PROPOSE_PAYMENT"],
+    "active": true
+  },
+  {
+    "id": "USR-002",
+    "name": "Bob CFO",
+    "role": "CFO",
+    "approval_limit": "1000000.00",
+    "permissions": ["READ_INVOICE", "READ_SUPPLIER", "READ_PO", "READ_POLICY", "PROPOSE_PAYMENT"],
+    "active": true
+  },
+  {
+    "id": "USR-003",
+    "name": "Carol AP Clerk",
+    "role": "AP_CLERK",
+    "approval_limit": "0.00",
+    "permissions": ["READ_INVOICE", "READ_SUPPLIER", "READ_PO", "READ_POLICY", "PROPOSE_PAYMENT"],
+    "active": true
+  }
+]

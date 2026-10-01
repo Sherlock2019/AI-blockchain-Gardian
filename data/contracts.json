@@ -1,0 +1,23 @@
+[
+  {
+    "id": "CTR-2025-011",
+    "supplier_id": "SUP-001",
+    "title": "Master Supply Agreement — Acme Industrial Components",
+    "purchase_order_ids": ["PO-9815", "PO-9821", "PO-9822", "PO-9823"],
+    "terms": "Acme Industrial Components supplies server hardware, cooling and power distribution equipment. Payment terms are net 30 days from confirmed delivery. Each invoice must reference an approved purchase order and must not exceed that purchase order. Changes to remittance details require a signed amendment handled by Supplier Master Data, never by accounts payable."
+  },
+  {
+    "id": "CTR-2025-019",
+    "supplier_id": "SUP-002",
+    "title": "Logistics Services Agreement — Global Logistics Ltd",
+    "purchase_order_ids": ["PO-9850", "PO-9851"],
+    "terms": "Global Logistics Ltd provides freight forwarding and warehouse handling. Fuel or peak-season surcharges are payable only when a revised purchase order has been approved in advance. Payment terms are net 45 days."
+  },
+  {
+    "id": "CTR-2026-003",
+    "supplier_id": "SUP-004",
+    "title": "Capital Equipment Agreement — Northwind Heavy Machinery",
+    "purchase_order_ids": ["PO-9830"],
+    "terms": "Northwind Heavy Machinery supplies and installs one CNC machining centre. The full contract value is payable after installation sign-off by plant engineering. Capital payments follow the standard approval thresholds."
+  }
+]
