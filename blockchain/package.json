@@ -1,0 +1,16 @@
+{
+  "name": "trustchain-blockchain",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TrustChainRegistry smart contract (local Hardhat network only)",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "node": "hardhat node --hostname 127.0.0.1",
+    "deploy": "hardhat run scripts/deploy.js --network localhost"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.26.0"
+  }
+}
