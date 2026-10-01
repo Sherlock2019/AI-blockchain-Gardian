@@ -1,0 +1,65 @@
+# Demonstration stack. One command: docker compose up --build
+# Dashboard: http://<host>:5173 (set WEB_PORT to change the port)
+# API docs:  http://localhost:8000/docs, from the host itself only
+#
+# All state is ephemeral by design: the chain starts empty on every run, so the
+# application database does too.
+services:
+  chain:
+    build:
+      context: .
+      dockerfile: blockchain/Dockerfile
+    ports:
+      # Loopback only. The node has unlocked accounts: never publish it.
+      - "127.0.0.1:8545:8545"
+    volumes:
+      - deployments:/deployments
+    healthcheck:
+      # Healthy once the contract is deployed and the agent is registered.
+      test: ["CMD", "test", "-f", "/deployments/localhost.json"]
+      interval: 2s
+      timeout: 2s
+      retries: 60
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      LEDGER_MODE: hardhat
+      LEDGER_RPC_URL: http://chain:8545
+      LEDGER_DEPLOYMENT_FILE: /deployments/localhost.json
+      DATABASE_URL: sqlite:////tmp/trustchain.db
+      LLM_PROVIDER: ${LLM_PROVIDER:-mock}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-https://api.openai.com/v1}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o-mini}
+      APPROVAL_SIGNING_SECRET: ${APPROVAL_SIGNING_SECRET:-}
+      DEMO_MODE: ${DEMO_MODE:-true}
+    ports:
+      # Loopback only. The dashboard reaches the API through its own origin.
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - deployments:/deployments:ro
+    depends_on:
+      chain:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health')"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  frontend:
+    build:
+      context: frontend
+    ports:
+      # The only port published on every interface: the web UI. On a server,
+      # this is the one port to open in the firewall or security group.
+      - "${WEB_PORT:-5173}:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+volumes:
+  deployments:
