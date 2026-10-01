@@ -69,15 +69,14 @@ flowchart TD
 Requires Python 3.12, Node 20+ and `make`. Or just Docker.
 
 ```bash
-git clone <this repository> && cd trustchain-ai
+git clone git@github.com:Sherlock2019/AI-blockchain-Gardian.git
+cd AI-blockchain-Gardian
 
-# Option A: Docker
-docker compose up --build
-
-# Option B: local processes
-make install
-make demo
+./start.sh          # Docker if available, otherwise local processes
+./start.sh stop     # stop
 ```
+
+The same thing by hand: `docker compose up --build`, or `make install && make demo`.
 
 Open **http://localhost:5173** and choose *Run the 5-minute demo*.
 API documentation is at http://localhost:8000/docs.
