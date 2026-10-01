@@ -9,8 +9,12 @@ page, and the web server forwards it to the API inside the machine.
 | Port | Service | Bound to | Open in the security group? |
 |---|---|---|---|
 | `WEB_PORT` (default 5173) | Web UI, and `/api` through it | all interfaces | **Yes**, this one only |
-| 8000 | API directly, `/docs` | loopback | No |
-| 8545 | Hardhat node | loopback | **Never** |
+| 8000 | API | not published (Docker network only) | No |
+| 8545 | Hardhat node | not published (Docker network only) | **Never** |
+
+If the web port is already taken on the instance, pick another: `WEB_PORT=8080 ./start.sh`.
+To run the smoke check against Docker, go through the UI port:
+`python3 scripts/smoke.py http://localhost:5173`.
 
 The Hardhat node has unlocked accounts, so anyone who can reach port 8545 can
 write to the registry as admin. It is bound to loopback for that reason.

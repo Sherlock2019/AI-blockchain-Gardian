@@ -1,6 +1,6 @@
 # Demonstration stack. One command: docker compose up --build
 # Dashboard: http://<host>:5173 (set WEB_PORT to change the port)
-# API docs:  http://localhost:8000/docs, from the host itself only
+# The API and the chain are not published on the host.
 #
 # All state is ephemeral by design: the chain starts empty on every run, so the
 # application database does too.
@@ -9,9 +9,7 @@ services:
     build:
       context: .
       dockerfile: blockchain/Dockerfile
-    ports:
-      # Loopback only. The node has unlocked accounts: never publish it.
-      - "127.0.0.1:8545:8545"
+    # No host port: the node has unlocked accounts and only the backend needs it.
     volumes:
       - deployments:/deployments
     healthcheck:
@@ -36,9 +34,7 @@ services:
       OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o-mini}
       APPROVAL_SIGNING_SECRET: ${APPROVAL_SIGNING_SECRET:-}
       DEMO_MODE: ${DEMO_MODE:-true}
-    ports:
-      # Loopback only. The dashboard reaches the API through its own origin.
-      - "127.0.0.1:8000:8000"
+    # No host port: the dashboard reaches the API through its own origin (/api).
     volumes:
       - deployments:/deployments:ro
     depends_on:
